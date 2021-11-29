@@ -25,12 +25,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 class MiddlewareStackHandler implements RequestHandlerInterface
 {
     /**
-     * @var \Phauthentic\Infrastructure\Http\MiddlewareSTack\MiddlewareStackInterface
+     * @var \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
      */
     protected MiddlewareStackInterface $middlewareStack;
 
     /**
-     * @param \Phauthentic\Infrastructure\Http\MiddlewareSTack\MiddlewareStackInterface
+     * @param \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface $middlewares
      */
     public function __construct(MiddlewareStackInterface $middlewares)
     {

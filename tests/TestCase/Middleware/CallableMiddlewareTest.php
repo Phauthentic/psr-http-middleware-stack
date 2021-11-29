@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Phauthentic\Test\TestCase\MiddlewareStack;
@@ -10,8 +11,7 @@ class CallableMiddlewareTest extends TestCase
 {
     public function middlewareStacktest()
     {
-        $callable = function() {
-
+        $callable = function () {
         };
 
         $middleware = new CallableMiddleware($callable);
