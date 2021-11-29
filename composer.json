@@ -1,0 +1,68 @@
+{
+    "name": "phauthentic/psr-http-middleware-stack",
+    "description": "A slim and simple PSR middleware stack",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Florian Krämer",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || 8.*",
+        "psr/container": "^2.0",
+        "psr/http-server-handler": "^1.0",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phauthentic\\Infrastructure\\Http\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Phauthentic\\Test\\Infrastrucutre\\Http\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "bin-dir": "bin",
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php config/composer_post_install.php"
+        ],
+        "post-update-cmd": [
+            "php config/composer_post_install.php"
+        ],
+        "test": [
+            "phpunit"
+        ],
+        "test-coverage": [
+            "phpunit --coverage-text"
+        ],
+        "test-coverage-html": [
+            "phpunit --coverage-html ./tmp/coverage"
+        ],
+        "cscheck": [
+            "phpcs --standard=./phpcs.xml -s"
+        ],
+        "csfix": [
+            "phpcbf --standard=./phpcs.xml"
+        ],
+        "analyze": [
+            "phpstan analyse"
+        ],
+        "phive": [
+            "php ./config/composer_phive.php"
+        ]
+    }
+}
