@@ -27,7 +27,7 @@
         <phar url="https://some.tld/tool.phar" />
         <phar url="someone/somerepo" />
     -->
-  <phar name="phpunit" version="^9.0" location="./bin/phpunit" copy="true" installed="9.5.2"/>
+  <phar name="phpunit" version="^9.5.7" location="./bin/phpunit" copy="true" installed="9.5.2"/>
   <phar name="phpstan" version="^0.12.30" location="./bin/phpstan" copy="true" installed="0.12.84"/>
   <phar name="phpcs" version="^3.5.3" location="./bin/phpcs" copy="true" installed="3.5.8"/>
   <phar name="phpcbf" version="^3.5.3" location="./bin/phpcbf" copy="true" installed="3.5.4"/>
