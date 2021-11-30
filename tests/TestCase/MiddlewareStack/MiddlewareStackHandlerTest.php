@@ -14,7 +14,7 @@ use Psr\Http\Server\MiddlewareInterface;
 
 class MiddlewareStackHandlerTest extends TestCase
 {
-    public function noMiddlewareFoundTest()
+    public function testNoMiddlewareFound()
     {
         $serverRequestMock = $this->getServerRequestMock();
         $middlewareStack = new MiddlewareStack();

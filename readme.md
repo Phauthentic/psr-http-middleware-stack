@@ -10,6 +10,12 @@
 
 A pure and minimalistic PSR middleware stack, no further dependencies required.
 
+## Installation
+
+```sh
+composer require phauthentic/psr-http-middleware-stack
+```
+
 ## Documentation
 
 Please see the [docs](/docs/index.md) folder in this repository for the documentation.

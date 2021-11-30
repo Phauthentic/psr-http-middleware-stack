@@ -22,5 +22,12 @@ interface MiddlewareStackFactoryInterface
     /**
      * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
      */
-    public function create(): MiddlewareStackInterface;
+    public function createMiddlewareStack(): MiddlewareStackInterface;
+
+    /**
+     * @param array $middlewares
+     *
+     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
+     */
+    public function createMiddlewareStackFromArray(array $middlewares): MiddlewareStackInterface;
 }

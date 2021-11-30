@@ -12,9 +12,9 @@ If you want to manually install it we assume you know what you're doing by not u
 
 ## Development Tools
 
-We are using [Phive](https://github.com/phar-io/phive) for most of the dev tools. This provides a few advantges, mostly that we get away with a lot less dev dependencies that can cause additional conflicts.
+We are using [Phive](https://github.com/phar-io/phive) for most of the dev tools. This provides a few advantages, mostly that we get away with a lot less dev dependencies that can cause additional conflicts.
 
-The dev tools should be alread installed through the post-install callback of Composer.
+The dev tools should be already installed through the post-install callback of Composer.
 
 To manually install Phive and the dev tools you can run:
 

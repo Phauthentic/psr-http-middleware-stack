@@ -6,11 +6,20 @@ namespace Phauthentic\Test\TestCase\MiddlewareStack;
 
 use Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStack;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Server\MiddlewareInterface;
 
 class MiddlewareStackTest extends TestCase
 {
-    public function middlewareStacktest()
+    public function testMiddlewareStack()
     {
-        $middleware = new MiddlewareStack();
+        $middlewareMock = $this->getMockBuilder(MiddlewareInterface::class)
+            ->getMock();
+
+        $middlewareStack = new MiddlewareStack();
+        $middlewareStack->add($middlewareMock);
+
+        $result = $middlewareStack->current();
+
+        $this->assertEquals($middlewareMock, $result);
     }
 }

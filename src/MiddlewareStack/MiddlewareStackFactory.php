@@ -35,42 +35,39 @@ class MiddlewareStackFactory implements MiddlewareStackFactoryInterface
 
     /**
      * @param \Psr\Container\ContainerInterface $container
-     * @param array $middlewares
      */
     public function __construct(
-        ContainerInterface $container,
-        array $middlewares = []
+        ContainerInterface $container
     ) {
         $this->container = $container;
-        $this->middlewares = $middlewares;
     }
 
     /**
      * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
      */
-    protected function createStack(): MiddlewareStackInterface
+    public function createMiddlewareStack(): MiddlewareStackInterface
     {
         return new MiddlewareStack();
     }
 
     /**
-     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
+     * @inheritDoc
      */
-    public function create(): MiddlewareStackInterface
+    public function createMiddlewareStackFromArray(array $middlewares): MiddlewareStackInterface
     {
-        $stack = $this->createStack();
-
-        return $this->populateStackFromArray($stack);
+        return $this->populateStackFromArray($this->createMiddlewareStack(), $middlewares);
     }
 
     /**
      * @param \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface $middlewareStack
+     * @param array $middlewares
      * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
      */
     protected function populateStackFromArray(
-        MiddlewareStackInterface $middlewareStack
+        MiddlewareStackInterface $middlewareStack,
+        array $middlewares
     ): MiddlewareStackInterface {
-        foreach ($this->middlewares as $middleware) {
+        foreach ($middlewares as $middleware) {
             if (is_string($middleware) && !$this->container->has($middleware)) {
                 $middleware = $this->container->get($middleware);
             }
