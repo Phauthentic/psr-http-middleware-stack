@@ -20,14 +20,14 @@ namespace Phauthentic\Infrastructure\Http\MiddlewareStack;
 interface MiddlewareStackFactoryInterface
 {
     /**
-     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
+     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface<int, \Psr\Http\Server\MiddlewareInterface>
      */
     public function createMiddlewareStack(): MiddlewareStackInterface;
 
     /**
-     * @param array $middlewares
+     * @param array<int, mixed> $middlewares
      *
-     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
+     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface<int, \Psr\Http\Server\MiddlewareInterface>
      */
     public function createMiddlewareStackFromArray(array $middlewares): MiddlewareStackInterface;
 }

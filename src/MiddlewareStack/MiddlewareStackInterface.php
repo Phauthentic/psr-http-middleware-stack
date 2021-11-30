@@ -32,5 +32,5 @@ interface MiddlewareStackInterface extends SeekableIterator
      *
      * @param \Psr\Http\Server\MiddlewareInterface $middleware
      */
-    public function add(MiddlewareInterface $middleware);
+    public function add(MiddlewareInterface $middleware): void;
 }

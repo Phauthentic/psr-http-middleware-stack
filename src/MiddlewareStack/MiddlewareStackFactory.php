@@ -29,11 +29,6 @@ class MiddlewareStackFactory implements MiddlewareStackFactoryInterface
     protected ContainerInterface $container;
 
     /**
-     * @var mixed[]
-     */
-    protected array $middlewares;
-
-    /**
      * @param \Psr\Container\ContainerInterface $container
      */
     public function __construct(
@@ -43,7 +38,7 @@ class MiddlewareStackFactory implements MiddlewareStackFactoryInterface
     }
 
     /**
-     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
+     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface<int, \Psr\Http\Server\MiddlewareInterface>
      */
     public function createMiddlewareStack(): MiddlewareStackInterface
     {
@@ -59,16 +54,16 @@ class MiddlewareStackFactory implements MiddlewareStackFactoryInterface
     }
 
     /**
-     * @param \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface $middlewareStack
-     * @param array $middlewares
-     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface
+     * @param \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface<int, \Psr\Http\Server\MiddlewareInterface> $middlewareStack
+     * @param array<int, \Psr\Http\Server\MiddlewareInterface|string|callable> $middlewares
+     * @return \Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStackInterface<int, \Psr\Http\Server\MiddlewareInterface>
      */
     protected function populateStackFromArray(
         MiddlewareStackInterface $middlewareStack,
         array $middlewares
     ): MiddlewareStackInterface {
         foreach ($middlewares as $middleware) {
-            if (is_string($middleware) && !$this->container->has($middleware)) {
+            if (is_string($middleware) && $this->container->has($middleware)) {
                 $middleware = $this->container->get($middleware);
             }
 

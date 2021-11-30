@@ -23,7 +23,7 @@ use Psr\Http\Server\MiddlewareInterface;
 class MiddlewareStack implements MiddlewareStackInterface
 {
     /**
-     * @var array
+     * @var array<int, \Psr\Http\Server\MiddlewareInterface> $stack
      */
     protected array $stack = [];
 

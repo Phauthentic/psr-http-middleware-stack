@@ -24,8 +24,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class CallableMiddleware implements MiddlewareInterface
 {
+    /**
+     * @var mixed
+     */
     protected $callable;
 
+    /**
+     * @param callable $callable
+     */
     public function __construct(
         callable $callable
     ) {
