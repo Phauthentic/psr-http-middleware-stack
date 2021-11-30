@@ -40,7 +40,7 @@ jobs:
         fi
     - name: Code Coverage Report
       if: success() && matrix.php-version == '7.4'
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v2
 
   validation:
     name: Coding Standard & Static Analysis
