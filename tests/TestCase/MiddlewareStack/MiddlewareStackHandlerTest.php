@@ -14,7 +14,7 @@ use Psr\Http\Server\MiddlewareInterface;
 
 class MiddlewareStackHandlerTest extends TestCase
 {
-    public function testNoMiddlewareFound()
+    public function testNoMiddlewareFound(): void
     {
         $serverRequestMock = $this->getServerRequestMock();
         $middlewareStack = new MiddlewareStack();
@@ -26,7 +26,7 @@ class MiddlewareStackHandlerTest extends TestCase
         $middlewareStackHandler->handle($serverRequestMock);
     }
 
-    public function testMiddlewareFound()
+    public function testMiddlewareFound(): void
     {
         $responseMock = $this->getResponseMock();
         $middlewareMock = $this->getMiddlewareMock();
@@ -44,18 +44,27 @@ class MiddlewareStackHandlerTest extends TestCase
         $this->assertEquals($responseMock, $result);
     }
 
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Psr\Http\Message\ServerRequestInterface
+     */
     public function getServerRequestMock()
     {
         return $this->getMockBuilder(ServerRequestInterface::class)
             ->getMock();
     }
 
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Psr\Http\Server\MiddlewareInterface
+     */
     public function getMiddlewareMock()
     {
         return $this->getMockBuilder(MiddlewareInterface::class)
             ->getMock();
     }
 
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Psr\Http\Message\ResponseInterface
+     */
     public function getResponseMock()
     {
         return $this->getMockBuilder(ResponseInterface::class)

@@ -12,7 +12,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class CallableMiddlewareTest extends TestCase
 {
-    public function testCallableMiddleware()
+    public function testCallableMiddleware(): void
     {
         $requestMock = $this->getMockBuilder(ServerRequestInterface::class)
             ->getMock();

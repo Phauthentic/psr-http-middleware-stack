@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Phauthentic\Test\TestCase\MiddlewareStack;
 
+use Phauthentic\Infrastructure\Http\MiddlewareStack\Exception\OutOfBoundsException;
 use Phauthentic\Infrastructure\Http\MiddlewareStack\MiddlewareStack;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\MiddlewareInterface;
 
 class MiddlewareStackTest extends TestCase
 {
-    public function testMiddlewareStack()
+    public function testMiddlewareStack(): void
     {
         $middlewareMock = $this->getMockBuilder(MiddlewareInterface::class)
             ->getMock();
@@ -21,5 +22,24 @@ class MiddlewareStackTest extends TestCase
         $result = $middlewareStack->current();
 
         $this->assertEquals($middlewareMock, $result);
+        $this->assertEquals(0, $middlewareStack->key());
+        $this->assertTrue($middlewareStack->valid());
+
+        $middlewareStack->next();
+        $this->assertFalse($middlewareStack->valid());
+    }
+
+    public function testInvalid(): void
+    {
+        $this->expectException(OutOfBoundsException::class);
+        $middlewareStack = new MiddlewareStack();
+        $middlewareStack->current();
+    }
+
+    public function testInvalidSeek(): void
+    {
+        $this->expectException(OutOfBoundsException::class);
+        $middlewareStack = new MiddlewareStack();
+        $middlewareStack->seek(999);
     }
 }
