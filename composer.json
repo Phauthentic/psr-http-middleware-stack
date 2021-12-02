@@ -41,10 +41,10 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "php config/composer_post_install.php"
+            "php config/composer_phive.php"
         ],
         "post-update-cmd": [
-            "php config/composer_post_install.php"
+            "php config/composer_phive.php"
         ],
         "test": [
             "phpunit"

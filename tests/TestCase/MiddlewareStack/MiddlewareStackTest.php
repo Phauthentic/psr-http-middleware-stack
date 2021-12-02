@@ -11,6 +11,9 @@ use Psr\Http\Server\MiddlewareInterface;
 
 class MiddlewareStackTest extends TestCase
 {
+    /**
+     * @throws \Phauthentic\Infrastructure\Http\MiddlewareStack\Exception\OutOfBoundsException
+     */
     public function testMiddlewareStack(): void
     {
         $middlewareMock = $this->getMockBuilder(MiddlewareInterface::class)
@@ -29,6 +32,9 @@ class MiddlewareStackTest extends TestCase
         $this->assertFalse($middlewareStack->valid());
     }
 
+    /**
+     * @throws \Phauthentic\Infrastructure\Http\MiddlewareStack\Exception\OutOfBoundsException
+     */
     public function testInvalid(): void
     {
         $this->expectException(OutOfBoundsException::class);
@@ -36,6 +42,9 @@ class MiddlewareStackTest extends TestCase
         $middlewareStack->current();
     }
 
+    /**
+     * @throws \Phauthentic\Infrastructure\Http\MiddlewareStack\Exception\OutOfBoundsException
+     */
     public function testInvalidSeek(): void
     {
         $this->expectException(OutOfBoundsException::class);
