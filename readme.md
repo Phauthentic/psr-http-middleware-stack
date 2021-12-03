@@ -9,7 +9,7 @@
 ![php 8.0](https://img.shields.io/badge/php-8.0-blue?style=flat-square&color=8892bf)
 ![php 8.0](https://img.shields.io/badge/php-8.1-blue?style=flat-square&color=8892bf)
 
-A pure and minimalistic PSR middleware stack, no further dependencies required.
+A pure and minimalistic [PSR-15](https://www.php-fig.org/psr/psr-15/) middleware stack, no further dependencies required.
 
 ## Installation
 

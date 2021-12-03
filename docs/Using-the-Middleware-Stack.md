@@ -1,5 +1,7 @@
 # Using the Middleware Stack
 
+This library implements the [PSR-15](https://www.php-fig.org/psr/psr-15/) handler, and a stack that will process the middlewares also defined by PSR-15.
+
 Using the stack should be straight forward, the concept is pretty easy. You have the PSR middleware handler and the stack. The handler takes the stack filled with middlwares and walks  through them until a PSR response is being returned. See the two examples:
 
 ## Manual setup
